@@ -1,4 +1,5 @@
-﻿using library_domain.IServices;
+﻿using library_Api.Controllers;
+using library_domain.IServices;
 using library_infra.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
@@ -44,9 +45,9 @@ namespace libraryApi.Controllers
 
        // POST: Home/returnBook/5
         [HttpPost("returnBook/{isbnCode}")]
-        public decimal returnBook(long isbnCode, [FromBody] Member member)
+        public decimal returnBook(long isbnCode, [FromBody] ReturnBorrowedBook returnBorrowedBook)
         {
-           return _library.returnBook(isbnCode, member);
+            return _library.returnBook(isbnCode, returnBorrowedBook.member, returnBorrowedBook.classe); ;
         }
 
 

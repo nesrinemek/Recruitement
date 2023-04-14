@@ -7,13 +7,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using library_infra.Repositories;
 
 namespace library_domain.Services;
 
 public class Library : ILibrary
 {
-    public Dictionary<Book, Member> borrowings = new Dictionary<Book, Member>();
-    public Dictionary<Isbn, Book> availableBooks = new Dictionary<Isbn, Book>();
+   
     private readonly IResidentService _residentService;
     private readonly IStudentService _studentService;
     private readonly IBookRepository _bookRepository;
@@ -23,7 +23,6 @@ public class Library : ILibrary
         _residentService = residentService;
         _studentService = studentService;
         _bookRepository = bookRepository;
-        initializeDatabase();
 
     }
     public void initializeDatabase()
@@ -37,7 +36,7 @@ public class Library : ILibrary
         // Création de la bibliothéque
         foreach (Book book in new Book[] { book1, book2, book3, book4 })
         {
-            availableBooks.Add(book.isbn, book);
+            _bookRepository.availableBooks.Add(book.isbn, book);
         }
 
         // Création des membres
@@ -45,9 +44,9 @@ public class Library : ILibrary
         Member member2 = new Member { id = 2, firstName = "Jane", lastName = "Boo", address = "456 Elm St", description = "Student member", wallet = 50, type = "Student" };
 
         // Emprunt des livres
-        //borrowings.Add(book, member1);
-        borrowings.Add(book2, member2);
-        borrowings.Add(book3, member1);
+        //_bookRepository.borrowings.Add(book, member1);
+        _bookRepository.borrowings.Add(book2, member2);
+        _bookRepository.borrowings.Add(book3, member1);
 
     }
 
@@ -78,9 +77,9 @@ public class Library : ILibrary
         foreach (Book book in books)
         {
             var isbn = book.isbn;
-            if (!availableBooks.ContainsKey(isbn))
+            if (!_bookRepository.availableBooks.ContainsKey(isbn))
             {
-                _bookRepository.saveAll(books);
+                _bookRepository.save(book);
             }
             else
             {
@@ -96,16 +95,16 @@ public class Library : ILibrary
         bool isBookAvailable = false;
 
         // Chercher le livre avec l'isbnCode
-        foreach (Isbn isbn in availableBooks.Keys)
+        foreach (Isbn isbn in _bookRepository.availableBooks.Keys)
         {
             if (isbn.IsbnCode == isbnCode)
             {
                 isBookAvailable = true;
-                bookToBorrow = availableBooks.Values.First();//!!!!!!!!!!!!
+                bookToBorrow = _bookRepository.availableBooks[isbn];
                 break;
             }
         }
-        if (isBookAvailable) // si le livre est disponible dans le dictionnaire availableBooks
+        if (isBookAvailable) // si le livre est disponible dans le dictionnaire _bookRepository.availableBooks
         {
             DateOnly? expectedReturnDate = null;
 
@@ -139,7 +138,7 @@ public class Library : ILibrary
                     bookToBorrow.borrowedAt = borrowedAt;
                     bookToBorrow.expectedReturnDate = expectedReturnDate;
                     //Lui emprenter le livre
-                    borrowings.Add(bookToBorrow, student);
+                    _bookRepository.borrowings.Add(bookToBorrow, student);
                     return bookToBorrow;
 
                 }
@@ -152,7 +151,7 @@ public class Library : ILibrary
                     bookToBorrow.borrowedAt = borrowedAt;
                     bookToBorrow.expectedReturnDate = expectedReturnDate;
                     //Lui emprenter le livre
-                    borrowings.Add(bookToBorrow, member);
+                    _bookRepository.borrowings.Add(bookToBorrow, member);
                     return bookToBorrow;
 
                 }
@@ -164,7 +163,7 @@ public class Library : ILibrary
                 bookToBorrow.borrowedAt = borrowedAt;
                 bookToBorrow.expectedReturnDate= expectedReturnDate;
                 //Lui emprenter le livre
-                borrowings.Add(bookToBorrow, member);
+                _bookRepository.borrowings.Add(bookToBorrow, member);
                 return bookToBorrow;
 
             }
@@ -174,13 +173,13 @@ public class Library : ILibrary
 
 
     }
-    public decimal returnBook(long isbnCode, Member member)
+    public decimal returnBook(long isbnCode, Member member, int? classe)
     {
         Book BookBorrowed = new Book();
         bool isBookBorrowed = false;
 
         // Chercher le livre avec l'isbnCode
-        foreach (Book book in borrowings.Keys)
+        foreach (Book book in _bookRepository.borrowings.Keys)
         {
             if (book.isbn.IsbnCode == isbnCode)
             {
@@ -195,11 +194,11 @@ public class Library : ILibrary
             throw new InvalidOperationException("Le livre n'a pas été emprunté");
         }
 
-        if (borrowings[BookBorrowed].id != member.id)
+        if (_bookRepository.borrowings[BookBorrowed].id != member.id)
         {
             throw new InvalidOperationException("Le livre a été emprunté par un autre membre");
         }
-        if (availableBooks.ContainsKey(BookBorrowed.isbn) && BookBorrowed.borrowedAt == null)
+        if (_bookRepository.availableBooks.ContainsKey(BookBorrowed.isbn) && BookBorrowed.borrowedAt == null)
         {
             throw new AlreadyExistBookException(BookBorrowed.isbn);
         }
@@ -209,12 +208,16 @@ public class Library : ILibrary
             throw new HasLateBooksException();
         }
 
-        var Fees = CalculateFees(member, BookBorrowed);
+        var Fees = CalculateFees(member, BookBorrowed, classe);
+        if (Fees > member.wallet)
+        {
+            throw new InvalidOperationException("ton budget n'est pas suffisant"); //a verifier!!!!!!
+        }
 
         // Mettre à jour les données du livre
         BookBorrowed.borrowedAt = null;
         BookBorrowed.expectedReturnDate = null;
-        borrowings.Remove(BookBorrowed);
+        _bookRepository.borrowings.Remove(BookBorrowed);
         return Fees;
     }
 
@@ -223,7 +226,7 @@ public class Library : ILibrary
     private bool IsMemberLate(Member member) // autres livres le membre 
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
-        foreach (var borrowing in borrowings)
+        foreach (var borrowing in _bookRepository.borrowings)
         {
             if (member.type == "Student" && borrowing.Key.borrowedAt.HasValue && borrowing.Key.borrowedAt.Value.AddDays(30)< today   )
             {
@@ -241,25 +244,20 @@ public class Library : ILibrary
     }
 
     // Méthode pour calculer les frais
-    private decimal CalculateFees(Member member, Book book)
+    private decimal CalculateFees(Member member, Book book, int? classe)
     {
         DateOnly today = DateOnly.FromDateTime(DateTime.Today);
         int numberOfDays = 0;
         if (book.borrowedAt != null)
         {
-             numberOfDays = today.DayNumber - book.borrowedAt.Value.DayNumber ; //A verifier!!!
+             numberOfDays = today.DayNumber - book.borrowedAt.Value.DayNumber ; 
         }
         decimal fees = 0;
-        if (member.type== "Student")
+        if (classe.HasValue && member.type== "Student")
         {
             var student = new Student
             {
-                address = member.address,
-                firstName = member.firstName,
-                lastName = member.lastName,
-                classe = 2,
-                id = member.id,
-
+                classe = (int)classe,
             };
             fees = _studentService.payBook(numberOfDays, student);
         }

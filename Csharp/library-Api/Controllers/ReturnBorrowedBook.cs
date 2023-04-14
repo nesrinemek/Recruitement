@@ -1,11 +1,10 @@
 ﻿using library_infra.Models;
 
-namespace libraryApi.Controllers;
+namespace library_Api.Controllers;
 
-public class BorrowBookRequest
+public class ReturnBorrowedBook
 {
     public Member member { get; set; }
-    public string borrowedAt { get; set; }
     public int? classe { get; set; }// a verifier!!!!!!
 
 }

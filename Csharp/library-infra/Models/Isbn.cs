@@ -17,5 +17,25 @@ public class Isbn
     {
         IsbnCode = isbnCode;
     }
+    public override int GetHashCode()
+    {
+        int hash = 17;
+        if (this.IsbnCode != null)
+        {
+            hash = (hash * 23) + this.IsbnCode.GetHashCode();
+        }
+        
+        return hash;
+    }
+    public override bool Equals(object obj)
+    {
+        if (obj == null || !(obj is Isbn))
+        {
+            return false;
+        }
 
+        Isbn isbn = (Isbn)obj;
+
+        return this.IsbnCode == isbn.IsbnCode; 
+    }
 }

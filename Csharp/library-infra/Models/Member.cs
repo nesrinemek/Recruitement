@@ -19,7 +19,7 @@ public class Member
     /// <summary>
     /// An initial sum of money the member has
     /// </summary>
-    public float wallet { get; set; }
+    public decimal wallet { get; set; }
     public string type { get; set; }
 
 

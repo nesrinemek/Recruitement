@@ -9,16 +9,16 @@ public class StartupConfigurationEvolutive
 {
     public static void InjecterServices(IServiceCollection services)
     {
-        services.AddScoped<ILibrary, Library>();
+        services.AddSingleton<ILibrary, Library>();
 
-        services.AddScoped<IResidentService, ResidentService>();
+        services.AddSingleton<IResidentService, ResidentService>();
 
-        services.AddScoped<IStudentService, StudentService>();
+        services.AddSingleton<IStudentService, StudentService>();
 
     }
     public static void InjecterRepositories(IServiceCollection services)
     {
-        services.AddScoped(typeof(IBookRepository), typeof(BookRepository));
+        services.AddSingleton(typeof(IBookRepository), typeof(BookRepository));
     }
 
 }

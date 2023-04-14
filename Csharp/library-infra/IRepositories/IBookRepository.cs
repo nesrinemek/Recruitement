@@ -9,6 +9,8 @@ namespace library_infra.IRepositories;
 
 public interface IBookRepository
 {
+    public Dictionary<Isbn, Book> availableBooks { get; }
+    public Dictionary<Book, Member> borrowings { get; }
     public  void saveAll(IList<Book> books);
     public Book findBook(long isbnCode);
     public void save(Book book);
