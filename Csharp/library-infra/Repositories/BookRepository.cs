@@ -23,27 +23,6 @@ public class BookRepository : IBookRepository
     {
         availableBooks = new Dictionary<Isbn, Book>();
         borrowings = new Dictionary<Book, Member>();
-        //// Création des livres
-        //Book book1 = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", new Isbn(5), null, null);
-        //Book book2 = new Book("The Lord of the Rings", "J.R.R. Tolkien", new Isbn(6), null, null);
-        //Book book3 = new Book("To Kill a Mockingbird", "Harper Lee", new Isbn(7), new DateOnly(2023, 04, 13), null);
-        //Book book4 = new Book("Kill a king", "Harper Lee", new Isbn(8), null, null);
-
-        //// Création de la bibliothéque
-        //foreach (Book book in new Book[] { book1, book2, book3, book4 })
-        //{
-        //    availableBooks.Add(book.isbn, book);
-        //}
-
-        //// Création des membres
-        //Member member1 = new Member { id = 1, firstName = "John", lastName = "Doe", address = "123 Main St", description = "Resident member", wallet = 100, type = "Resident" };
-        //Member member2 = new Member { id = 2, firstName = "Jane", lastName = "Boo", address = "456 Elm St", description = "Student member", wallet = 50, type = "Student" };
-
-        //// Emprunt des livres
-        ////borrowings.Add(book, member1);
-        //borrowings.Add(book2, member2);
-        //borrowings.Add(book3, member1);
-
     }
 
 
