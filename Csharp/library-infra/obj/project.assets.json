@@ -205,11 +205,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-infra\\library-infra.csproj",
+      "projectUniqueName": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj",
       "projectName": "library-infra",
-      "projectPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-infra\\library-infra.csproj",
+      "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj",
       "packagesPath": "C:\\Users\\nesrine.meki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-infra\\obj\\",
+      "outputPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nesrine.meki\\AppData\\Roaming\\NuGet\\NuGet.Config",

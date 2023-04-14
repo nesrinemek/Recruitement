@@ -1890,16 +1890,6 @@
         "runtime": {
           "bin/placeholder/library-infra.dll": {}
         }
-      },
-      "LibraryApp/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/LibraryApp.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/LibraryApp.dll": {}
-        }
       }
     }
   },
@@ -6329,16 +6319,11 @@
       "type": "project",
       "path": "../library-infra/library-infra.csproj",
       "msbuildProject": "../library-infra/library-infra.csproj"
-    },
-    "LibraryApp/1.0.0": {
-      "type": "project",
-      "path": "../LibraryApp/LibraryApp.csproj",
-      "msbuildProject": "../LibraryApp/LibraryApp.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "LibraryApp >= 1.0.0",
+      "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "System.Text.Json >= 7.0.2",
       "coverlet.collector >= 3.1.0",
@@ -6353,11 +6338,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\TestsLibraryApp\\TestsLibraryApp.csproj",
+      "projectUniqueName": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\TestsLibraryApp\\TestsLibraryApp.csproj",
       "projectName": "TestsLibraryApp",
-      "projectPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\TestsLibraryApp\\TestsLibraryApp.csproj",
+      "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\TestsLibraryApp\\TestsLibraryApp.csproj",
       "packagesPath": "C:\\Users\\nesrine.meki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\TestsLibraryApp\\obj\\",
+      "outputPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\TestsLibraryApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nesrine.meki\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6374,11 +6359,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-domain\\library-domain.csproj": {
-              "projectPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-domain\\library-domain.csproj"
+            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj": {
+              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj"
             },
-            "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\LibraryApp\\LibraryApp.csproj": {
-              "projectPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\LibraryApp\\LibraryApp.csproj"
+            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj": {
+              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj"
             }
           }
         }
@@ -6437,5 +6422,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1104",
+      "level": "Error",
+      "message": "Projet 'C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj' introuvable. Vérifiez que la référence de projet est valide et que le fichier projet existe.",
+      "libraryId": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }

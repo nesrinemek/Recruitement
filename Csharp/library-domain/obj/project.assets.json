@@ -224,11 +224,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-domain\\library-domain.csproj",
+      "projectUniqueName": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj",
       "projectName": "library-domain",
-      "projectPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-domain\\library-domain.csproj",
+      "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj",
       "packagesPath": "C:\\Users\\nesrine.meki\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-domain\\obj\\",
+      "outputPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nesrine.meki\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -245,8 +245,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-infra\\library-infra.csproj": {
-              "projectPath": "C:\\Users\\nesrine.meki\\source\\recruitment-web-master\\Csharp\\library-infra\\library-infra.csproj"
+            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj": {
+              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj"
             }
           }
         }
