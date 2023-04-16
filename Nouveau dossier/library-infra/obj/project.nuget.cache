@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "FVyTUfD2vKKXH4TQYTn+e4k6NIwnWbfJW/BwZ4fzmKfLP6i3bBOUVthSOqF21e0RM9xy8J8tcjneIubEhsV8UA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Nouveau dossier\\library-infra\\library-infra.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\nesrine.meki\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\nesrine.meki\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
+    "C:\\Users\\nesrine.meki\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512"
+  ],
+  "logs": []
+}

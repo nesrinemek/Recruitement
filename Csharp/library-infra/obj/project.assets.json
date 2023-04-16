@@ -62,6 +62,19 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
+      },
+      "library-domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "System.Text.Json": "7.0.2"
+        },
+        "compile": {
+          "bin/placeholder/library-domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/library-domain.dll": {}
+        }
       }
     }
   },
@@ -192,11 +205,17 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
+    },
+    "library-domain/1.0.0": {
+      "type": "project",
+      "path": "../library-domain/library-domain.csproj",
+      "msbuildProject": "../library-domain/library-domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "System.Text.Json >= 7.0.2"
+      "System.Text.Json >= 7.0.2",
+      "library-domain >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -225,7 +244,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj": {
+              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

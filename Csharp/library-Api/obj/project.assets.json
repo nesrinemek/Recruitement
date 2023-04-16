@@ -532,8 +532,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "System.Text.Json": "7.0.2",
-          "library-infra": "1.0.0"
+          "System.Text.Json": "7.0.2"
         },
         "compile": {
           "bin/placeholder/library-domain.dll": {}
@@ -546,13 +545,28 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "System.Text.Json": "7.0.2"
+          "System.Text.Json": "7.0.2",
+          "library-domain": "1.0.0"
         },
         "compile": {
           "bin/placeholder/library-infra.dll": {}
         },
         "runtime": {
           "bin/placeholder/library-infra.dll": {}
+        }
+      },
+      "Library-service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "library-domain": "1.0.0",
+          "library-infra": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Library-service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Library-service.dll": {}
         }
       }
     }
@@ -1391,10 +1405,16 @@
       "type": "project",
       "path": "../library-infra/library-infra.csproj",
       "msbuildProject": "../library-infra/library-infra.csproj"
+    },
+    "Library-service/1.0.0": {
+      "type": "project",
+      "path": "../Library-service/Library-service.csproj",
+      "msbuildProject": "../Library-service/Library-service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Library-service >= 1.0.0",
       "Microsoft.Build >= 17.5.0",
       "NSwag.Annotations >= 13.18.2",
       "Swashbuckle.AspNetCore >= 6.2.3",
@@ -1435,6 +1455,9 @@
             },
             "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj": {
               "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj"
+            },
+            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\Library-service\\Library-service.csproj": {
+              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\Library-service\\Library-service.csproj"
             }
           }
         }

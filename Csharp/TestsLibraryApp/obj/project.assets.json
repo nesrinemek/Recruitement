@@ -1868,27 +1868,13 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
-          "System.Text.Json": "7.0.2",
-          "library-infra": "1.0.0"
-        },
-        "compile": {
-          "bin/placeholder/library-domain.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/library-domain.dll": {}
-        }
-      },
-      "library-infra/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
           "System.Text.Json": "7.0.2"
         },
         "compile": {
-          "bin/placeholder/library-infra.dll": {}
+          "bin/placeholder/library-domain.dll": {}
         },
         "runtime": {
-          "bin/placeholder/library-infra.dll": {}
+          "bin/placeholder/library-domain.dll": {}
         }
       }
     }
@@ -6314,11 +6300,6 @@
       "type": "project",
       "path": "../library-domain/library-domain.csproj",
       "msbuildProject": "../library-domain/library-domain.csproj"
-    },
-    "library-infra/1.0.0": {
-      "type": "project",
-      "path": "../library-infra/library-infra.csproj",
-      "msbuildProject": "../library-infra/library-infra.csproj"
     }
   },
   "projectFileDependencyGroups": {

@@ -62,19 +62,6 @@
         "build": {
           "buildTransitive/net6.0/System.Text.Json.targets": {}
         }
-      },
-      "library-infra/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "System.Text.Json": "7.0.2"
-        },
-        "compile": {
-          "bin/placeholder/library-infra.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/library-infra.dll": {}
-        }
       }
     }
   },
@@ -205,17 +192,11 @@
         "system.text.json.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "library-infra/1.0.0": {
-      "type": "project",
-      "path": "../library-infra/library-infra.csproj",
-      "msbuildProject": "../library-infra/library-infra.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "System.Text.Json >= 7.0.2",
-      "library-infra >= 1.0.0"
+      "System.Text.Json >= 7.0.2"
     ]
   },
   "packageFolders": {
@@ -244,11 +225,7 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {
-            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj": {
-              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-infra\\library-infra.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
