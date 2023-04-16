@@ -3,6 +3,8 @@ using library_domain.IServices;
 using library_infra.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
+using System.Text.Json;
+
 
 namespace libraryApi.Controllers
 {
@@ -41,13 +43,12 @@ namespace libraryApi.Controllers
             return _library.borrowBook(isbnCode, request.member, date);
         }
 
-
-
-       // POST: Home/returnBook/5
-        [HttpPost("returnBook/{isbnCode}")]
-        public decimal returnBook(long isbnCode, [FromBody] ReturnBorrowedBook returnBorrowedBook)
+       
+        // POST: Home/returnBook/5
+        [HttpPost("returnBook")]
+        public void returnBook([FromBody] ReturnBorrowedBookRequest returnBorrowedBook)
         {
-            return _library.returnBook(isbnCode, returnBorrowedBook.member, returnBorrowedBook.classe); ;
+             _library.returnBook( returnBorrowedBook.Book, returnBorrowedBook.member); ;
         }
 
 

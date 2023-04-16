@@ -6,6 +6,6 @@ public class BorrowBookRequest
 {
     public Member member { get; set; }
     public string borrowedAt { get; set; }
-    public int? classe { get; set; }// a verifier!!!!!!
+
 
 }

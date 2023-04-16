@@ -17,11 +17,12 @@ public class Isbn
     {
         IsbnCode = isbnCode;
     }
+    
     public override int GetHashCode()
     {
-        int hash = 17;
-        return hash = (hash * 23) + this.IsbnCode.GetHashCode();        
+        return IsbnCode.GetHashCode();
     }
+
     public override bool Equals(object obj)
     {
         if (obj == null || !(obj is Isbn))

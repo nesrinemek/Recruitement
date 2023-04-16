@@ -11,10 +11,6 @@ public class StartupConfigurationEvolutive
     {
         services.AddSingleton<ILibrary, Library>();
 
-        services.AddSingleton<IResidentService, ResidentService>();
-
-        services.AddSingleton<IStudentService, StudentService>();
-
     }
     public static void InjecterRepositories(IServiceCollection services)
     {

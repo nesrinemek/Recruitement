@@ -2,9 +2,9 @@
 
 namespace library_Api.Controllers;
 
-public class ReturnBorrowedBook
+public class ReturnBorrowedBookRequest
 {
     public Member member { get; set; }
-    public int? classe { get; set; }// a verifier!!!!!!
+    public Book Book { get; set; }
 
 }

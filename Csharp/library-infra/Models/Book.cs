@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,23 +12,24 @@ namespace library_infra.Models;
 /// </summary>
 public class Book
 {
-    public string title { get; set; }
-    public string author { get; set; }
-    public Isbn isbn { get; set; }
-    public DateOnly? borrowedAt{ get; set; }
-    public DateOnly? expectedReturnDate { get; set; }
+    public string Title { get; set; }// mettre les set privé 
+    public string Author { get; set; }
+    public Isbn Isbn { get; set; }
+    public DateOnly? BorrowedAt{ get; private set; }
+    public Member? Member { get; private set; }
 
-    public Book()
+     public void SetMember(Member member)
     {
+        Member= member;
+        member.AddBook(this);
     }
 
-    public Book(string Title, string Author, Isbn Isbn,DateOnly? borrowedAt, DateOnly? expectedReturnDate)
+    public Book(string Title, string Author, Isbn Isbn,DateOnly? borrowedAt)
     {
-        this.title = Title;
-        this.author = Author;
-        this.isbn = Isbn;
-        this.borrowedAt = borrowedAt;
-        this.expectedReturnDate = expectedReturnDate;
+        this.Title = Title;
+        this.Author = Author;
+        this.Isbn = Isbn;
+        BorrowedAt = borrowedAt;
     }
     public override bool Equals(object obj)
     {
@@ -38,33 +40,13 @@ public class Book
 
         Book book = (Book)obj;
 
-        return this.title == book.title && this.author == book.author && this.isbn == book.isbn && this.borrowedAt == book.borrowedAt && this.expectedReturnDate == book.expectedReturnDate;
+        return this.Title == book.Title && this.Author == book.Author && this.Isbn == book.Isbn ;
     }
 
-    public override int GetHashCode()
+    public override int GetHashCode() => HashCode.Combine(Title.GetHashCode(), Author.GetHashCode(), Isbn.GetHashCode());
+
+    public void setBorrowedAt(DateOnly borrowedAt)
     {
-        int hash = 17;
-        if (this.isbn != null)
-        {
-            hash = (hash * 23) + this.isbn.GetHashCode();
-        }
-        if (this.title != null)
-        {
-            hash = (hash * 23) + this.title.GetHashCode();
-        }
-        if (this.author != null)
-        {
-            hash = (hash * 23) + this.author.GetHashCode();
-        }
-        if (this.borrowedAt.HasValue)
-        {
-            hash = (hash * 23) + this.borrowedAt.Value.GetHashCode();
-        }
-        if (this.expectedReturnDate.HasValue)
-        {
-            hash = (hash * 23) + this.expectedReturnDate.Value.GetHashCode();
-        }
-        return hash;
+        BorrowedAt = borrowedAt;
     }
-
 }

@@ -4,6 +4,7 @@ using library_infra.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,12 +18,10 @@ namespace library_infra.Repositories;
 /// 
 public class BookRepository : IBookRepository
 {
-    public Dictionary<Book, Member> borrowings { get; set; }
-    public Dictionary<Isbn, Book> availableBooks { get; set; }
+    private readonly Dictionary<Book, Member> _BorrowedBooks = new();
+    private readonly Dictionary<Isbn, Book> _AvailableBooks = new();
     public BookRepository()
-    {
-        availableBooks = new Dictionary<Isbn, Book>();
-        borrowings = new Dictionary<Book, Member>();
+    { 
     }
 
 
@@ -34,27 +33,41 @@ public class BookRepository : IBookRepository
         }
     }
 
-    public Book findBook(long isbnCode)
-    {
-        // Chercher le livre avec l'isbnCode envoyé
-        foreach (Isbn isbn in availableBooks.Keys)
-        {
-            if (isbn.IsbnCode == isbnCode)
-            {
-                return availableBooks[isbn];
-            }
-        }
-        return null;
+    public Book findBook(long IsbnCode)
+    { 
+        return _AvailableBooks.FirstOrDefault(x => x.Key.IsbnCode == IsbnCode).Value;
     }
 
     public void save(Book book)
     {
-        var isbn = book.isbn;
-        if (!availableBooks.ContainsKey(isbn))
+        var Isbn = book.Isbn;
+        if (!_AvailableBooks.ContainsKey(Isbn))
         {
-            availableBooks.Add(isbn, book);
+            _AvailableBooks.Add(Isbn, book);
         }
        
     }
+    public void saveBookBorrow(Book book, Member member)
+    {
+        _AvailableBooks.Remove(book.Isbn);
+        if (!_BorrowedBooks.ContainsKey(book))
+        {
+            _BorrowedBooks.Add(book, member); 
+            book.SetMember(member);
+        }
+         
+    }
+    public void returnBook(Book book)
+    {
+        _BorrowedBooks.Remove(book);
+        if(!_AvailableBooks.ContainsKey(book.Isbn))
+         book.setBorrowedAt(DateOnly.MinValue);
+        _AvailableBooks.Add(book.Isbn, book);
 
+    }
+
+    public IEnumerable<Book> GetAvailableBooks()
+    {
+        return _AvailableBooks.Select(x => x.Value);
+    }
 }
