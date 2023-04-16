@@ -22,16 +22,4 @@ public class Isbn
     {
         return IsbnCode.GetHashCode();
     }
-
-    public override bool Equals(object obj)
-    {
-        if (obj == null || !(obj is Isbn))
-        {
-            return false;
-        }
-
-        Isbn isbn = (Isbn)obj;
-
-        return this.IsbnCode == isbn.IsbnCode; 
-    }
 }

@@ -37,30 +37,26 @@ public  class Member
 
 
 
-    public virtual bool IsLate {
+    public bool IsLate {
         get
         {
             if(books.Count == 0) return false;
-            int maxperiod = Profil.MaxPeriod;
 
-            return true;
+            foreach (var book in books)
+            {
+                var borrowedAt = book.BorrowedAt;
+                var dueDate = borrowedAt.Value.AddDays(Profil.MaxPeriod + Profil.FreePeriod);
+                var today = DateOnly.FromDateTime(DateTime.Today);
+                if (today > dueDate)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
+    
     }
-    //DateOnly today = DateOnly.FromDateTime(DateTime.Today);
-    //    foreach (var borrowing in _bookRepository._BorrowedBooks)
-    //    {
-    //        if (member.Profil == "Student" && borrowing.Key.BorrowedAt.HasValue && borrowing.Key.BorrowedAt.Value.AddDays(30)< today   )
-    //        {
-    //            return true;
-    //        }
-    //        else if (member.Profil == "Resident" && borrowing.Key.BorrowedAt.HasValue  && borrowing.Key.BorrowedAt.Value.AddDays(60) < today)
-    //        {
-    //            return true;
-    //        }
-
-    //    }
-
-    //    return false;
 
     public void setWallet(decimal wallet) => Wallet = wallet;
 
@@ -81,11 +77,17 @@ public  class Member
 
     public void AddBook(Book book)
     {
+        //if (book.Member != null)
+        //{
+        //    throw new Exception("Book is already associated with a member");
+        //}
         if (books.Any(b => b.Isbn == book.Isbn))
         {
             throw new Exception("Duplicate book");
         }
         books.Add(book);
+       // book.SetMember(this);
+
     }
-     
+
 }

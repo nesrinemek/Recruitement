@@ -37,12 +37,6 @@ public class Resident : Member
         }
     }
 
-    //public override bool IsLate
-    //{
-    //    get
-    //    {
-    //        return BorrowedAt.Value.AddDays(Profil.MaxPeriod) < DateOnly.FromDateTime(DateTime.Today);
-    //    }
-    //}
+   
 
 }

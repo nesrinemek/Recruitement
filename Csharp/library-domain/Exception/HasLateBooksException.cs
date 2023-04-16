@@ -11,11 +11,9 @@ namespace library_domain.Exception;
 /// This exception is thrown when a member who owns late books tries to borrow another book
 /// </summary>
 [Serializable]
-public class HasLateBooksException : WebException
+public class HasLateBooksException : FormatException
 {
-    public int StatutHttp { get; }
     public HasLateBooksException() : base("L'utilisateur a des livres en retard")
     {
-        StatutHttp = (int)HttpStatusCode.BadRequest;
     }
 }

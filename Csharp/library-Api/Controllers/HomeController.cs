@@ -44,7 +44,7 @@ namespace libraryApi.Controllers
         }
 
        
-        // POST: Home/returnBook/5
+        // POST: Home/returnBook
         [HttpPost("returnBook")]
         public void returnBook([FromBody] ReturnBorrowedBookRequest returnBorrowedBook)
         {

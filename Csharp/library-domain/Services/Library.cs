@@ -59,10 +59,11 @@ public class Library : ILibrary
     }
     public Book borrowBook(long isbnCode, Member member, DateOnly BorrowedAt)
     {
-        if (member.IsLate)
-        {
-            throw new HasLateBooksException();
-        }
+
+        //if (member.IsLate)
+        //{
+        //    throw new HasLateBooksException();
+        //}
         var book = _bookRepository.findBook(isbnCode);
         if(book is not null)
         {
