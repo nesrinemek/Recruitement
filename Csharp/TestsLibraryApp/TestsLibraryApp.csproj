@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -23,7 +23,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\library-domain\library-domain.csproj" />
-    <ProjectReference Include="..\LibraryApp\LibraryApp.csproj" />
+    <ProjectReference Include="..\Library-service\Library-service.csproj" />
+	  <ProjectReference Include="..\Library-infra\Library-infra.csproj" />
   </ItemGroup>
 
 </Project>

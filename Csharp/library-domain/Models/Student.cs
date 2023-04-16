@@ -15,7 +15,7 @@ public class Student: Member
         base(id, firstName, lastName, address, description, wallet, profil)
     {
     }
-    public override void payBook(int numberOfDays)
+    public override decimal payBook(int numberOfDays)
     {
         decimal amount;      
 
@@ -37,6 +37,7 @@ public class Student: Member
         {
             throw new System.Exception("dont have amount in wallet !!!");
         }
+        return amount;
     }
 
     

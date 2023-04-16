@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "dgSpecHash": "LEqnJPDQxL6WcqXhIDnbONn3nlACnb/TrGdrmuaK7nw6Uo6xDBiPKeK3ayBExJ3Cb7rI+ouDA7sNvwWLoTpNBA==",
-  "success": false,
+  "dgSpecHash": "ZGOqhG+nmaa2gH3UgmejLfIAztYN2nwqCHPCYBFKqgZnV2J7L3S7Y6FY0UbiAKWkWsAFvIQlcctBXlV2HR77jw==",
+  "success": true,
   "projectFilePath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\TestsLibraryApp\\TestsLibraryApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\nesrine.meki\\.nuget\\packages\\coverlet.collector\\3.1.0\\coverlet.collector.3.1.0.nupkg.sha512",
@@ -100,15 +100,5 @@
     "C:\\Users\\nesrine.meki\\.nuget\\packages\\xunit.extensibility.execution\\2.4.1\\xunit.extensibility.execution.2.4.1.nupkg.sha512",
     "C:\\Users\\nesrine.meki\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.3\\xunit.runner.visualstudio.2.4.3.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Projet 'C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj' introuvable. Vérifiez que la référence de projet est valide et que le fichier projet existe.",
-      "libraryId": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  "logs": []
 }

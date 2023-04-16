@@ -45,9 +45,9 @@ namespace libraryApi.Controllers
        
         // POST: Home/returnBook
         [HttpPost("returnBook")]
-        public void returnBook([FromBody] ReturnBorrowedBookRequest returnBorrowedBook)
+        public decimal returnBook([FromBody] ReturnBorrowedBookRequest returnBorrowedBook)
         {
-             _library.returnBook( returnBorrowedBook.Book, returnBorrowedBook.member); ;
+            return _library.returnBook( returnBorrowedBook.Book, returnBorrowedBook.member); ;
         }
 
 

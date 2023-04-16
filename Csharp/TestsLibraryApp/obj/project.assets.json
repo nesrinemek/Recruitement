@@ -1876,6 +1876,34 @@
         "runtime": {
           "bin/placeholder/library-domain.dll": {}
         }
+      },
+      "library-infra/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "System.Text.Json": "7.0.2",
+          "library-domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/library-infra.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/library-infra.dll": {}
+        }
+      },
+      "Library-service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "library-domain": "1.0.0",
+          "library-infra": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Library-service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Library-service.dll": {}
+        }
       }
     }
   },
@@ -6300,15 +6328,26 @@
       "type": "project",
       "path": "../library-domain/library-domain.csproj",
       "msbuildProject": "../library-domain/library-domain.csproj"
+    },
+    "library-infra/1.0.0": {
+      "type": "project",
+      "path": "../library-infra/library-infra.csproj",
+      "msbuildProject": "../library-infra/library-infra.csproj"
+    },
+    "Library-service/1.0.0": {
+      "type": "project",
+      "path": "../Library-service/Library-service.csproj",
+      "msbuildProject": "../Library-service/Library-service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj",
+      "Library-service >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "System.Text.Json >= 7.0.2",
       "coverlet.collector >= 3.1.0",
       "library-domain >= 1.0.0",
+      "library-infra >= 1.0.0",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
     ]
@@ -6343,8 +6382,11 @@
             "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj": {
               "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\library-domain\\library-domain.csproj"
             },
-            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj": {
-              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj"
+            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\Library-infra\\Library-infra.csproj": {
+              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\Library-infra\\Library-infra.csproj"
+            },
+            "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\Library-service\\Library-service.csproj": {
+              "projectPath": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\Library-service\\Library-service.csproj"
             }
           }
         }
@@ -6403,16 +6445,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.103\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Projet 'C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj' introuvable. Vérifiez que la référence de projet est valide et que le fichier projet existe.",
-      "libraryId": "C:\\Users\\nesrine.meki\\Desktop\\Recruitement\\Csharp\\LibraryApp\\LibraryApp.csproj",
-      "targetGraphs": [
-        "net6.0"
-      ]
-    }
-  ]
+  }
 }

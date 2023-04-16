@@ -14,7 +14,7 @@ public class Resident : Member
         base(id, firstName, lastName, address, description, wallet, profil)
     {
     }
-    public override void payBook(int numberOfDays)
+    public override decimal payBook(int numberOfDays)
     {
         decimal amount;
         if (numberOfDays <= Profil.MaxPeriod)
@@ -35,6 +35,7 @@ public class Resident : Member
         {
             throw new  System.Exception("dont have amount in wallet !!!"); 
         }
+        return amount;
     }
 
    

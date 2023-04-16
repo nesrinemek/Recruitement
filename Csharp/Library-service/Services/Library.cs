@@ -70,13 +70,17 @@ public class Library : ILibrary
             _bookRepository.saveBookBorrow(book, member);
            
         }
+        else
+        {
+            throw new BookNotAvailableException();
+        }
         return book;
     }
-    public void returnBook(Book book, Member member)
+    public decimal returnBook(Book book, Member member)
     {
         int numberOfDays = member.NumberOfDaysBorrowed(book);
         _bookRepository.returnBook(book);
-        member.payBook(numberOfDays);
+        return member.payBook(numberOfDays);
          
     }
 

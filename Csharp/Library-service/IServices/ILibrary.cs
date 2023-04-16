@@ -32,7 +32,7 @@ public interface ILibrary
     /// <param name="member"> the <seealso cref="Member"/> who is returning the book
     /// </param>
     /// <seealso cref="Member.payBook(int)"/>
-    public void returnBook(Book book, Member member);
+    public decimal returnBook(Book book, Member member);
     public Book findBook(long isbnCode);
     public void saveAllBook(IList<Book> books);
 }

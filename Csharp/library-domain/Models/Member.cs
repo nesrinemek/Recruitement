@@ -60,8 +60,8 @@ public  class Member
 
     public void setWallet(decimal wallet) => Wallet = wallet;
 
-    public virtual void payBook(int numerOfdays)
-    { }
+    public virtual decimal payBook(int numerOfdays)
+    { return 0; }
 
     public int NumberOfDaysBorrowed(Book book)
     {
