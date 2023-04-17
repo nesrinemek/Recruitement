@@ -78,17 +78,11 @@ public abstract class Member
 
     public void AddBook(Book book)
     {
-        //if (book.Member != null)
-        //{
-        //    throw new Exception("Book is already associated with a member");
-        //}
         if (books.Any(b => b.Isbn == book.Isbn))
         {
             throw new System.Exception("Duplicate book");
         }
         books.Add(book);
-       // book.SetMember(this);
-
     }
 
 }

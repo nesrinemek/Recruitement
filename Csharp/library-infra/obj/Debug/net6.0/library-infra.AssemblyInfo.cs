@@ -11,12 +11,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("library-infra")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Library-infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
-[assembly: System.Reflection.AssemblyProductAttribute("library-infra")]
-[assembly: System.Reflection.AssemblyTitleAttribute("library-infra")]
+[assembly: System.Reflection.AssemblyProductAttribute("Library-infra")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Library-infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Généré par la classe MSBuild WriteCodeFragment.

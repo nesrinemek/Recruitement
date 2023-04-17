@@ -14,7 +14,6 @@ namespace library_infra.Repositories;
 /// <summary>C
 /// The book repository  
 /// </summary>
-/// //nesrine j'ai enlever virtual des signatures des methodes
 /// 
 public class BookRepository : IBookRepository
 {

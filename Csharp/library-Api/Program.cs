@@ -9,9 +9,6 @@ IServiceCollection services = builder.Services;
 StartupConfigurationEvolutive.InjecterServices(services);
 
 StartupConfigurationEvolutive.InjecterRepositories(services);
-//services.AddAutoMapper(
-//    typeof(library_domain.Models.Member),
-//   typeof(library_domain.Models.ConcreteMember));
 
 
 
