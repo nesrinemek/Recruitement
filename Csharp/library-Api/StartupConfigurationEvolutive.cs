@@ -1,4 +1,5 @@
-﻿using library_domain.Services;
+﻿using AutoMapper;
+using library_domain.Services;
 using library_infra.IRepositories;
 using library_infra.Repositories;
 using Library_service.IServices;
@@ -10,6 +11,9 @@ public class StartupConfigurationEvolutive
     public static void InjecterServices(IServiceCollection services)
     {
         services.AddSingleton<ILibrary, Library>();
+      //  services.AddScoped<IMapper, Mapper>();
+
+
 
     }
     public static void InjecterRepositories(IServiceCollection services)

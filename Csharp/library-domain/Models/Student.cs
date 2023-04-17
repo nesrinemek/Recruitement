@@ -10,11 +10,12 @@ namespace library_domain.Models;
 
 public class Student: Member
 {
-    public int classe { get; set; }
+   
     public Student(int id, string firstName, string lastName, string address, string description, decimal wallet, Profil profil) :
         base(id, firstName, lastName, address, description, wallet, profil)
     {
     }
+    public int classe { get; set; }
     public override decimal payBook(int numberOfDays)
     {
         decimal amount;      

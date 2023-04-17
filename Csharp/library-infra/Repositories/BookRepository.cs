@@ -70,4 +70,9 @@ public class BookRepository : IBookRepository
     {
         return _AvailableBooks.Select(x => x.Value);
     }
+
+    public Member findMember(int id)
+    {
+        return _BorrowedBooks.FirstOrDefault(x => x.Value.Id == id).Value;
+    } 
 }

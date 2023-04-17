@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Globalization;
 using System.Text.Json;
 using Library_service.IServices;
+using AutoMapper;
+
 
 namespace libraryApi.Controllers
 {
@@ -12,9 +14,11 @@ namespace libraryApi.Controllers
     public class HomeController : Controller
     {
         private readonly ILibrary _library;
-        public HomeController(ILibrary library)
+        private readonly IMapper _mapper;
+        public HomeController(ILibrary library, IMapper mapper)
         {
             _library = library;
+            _mapper = mapper;
         }
 
 
@@ -37,19 +41,41 @@ namespace libraryApi.Controllers
         // POST: Home/borrowBook/5
         [HttpPost("borrowBook/{isbnCode}")]
         public Book borrowBook(long isbnCode, [FromBody] BorrowBookRequest request)
-        {
+        { 
             DateOnly date = DateOnly.ParseExact(request.borrowedAt, "yyyy-MM-dd", CultureInfo.InvariantCulture);
-            return _library.borrowBook(isbnCode, request.member, date);
+
+            Member? member = GetMember(request.member);
+
+            return _library.borrowBook(isbnCode, member, date);
         }
 
-       
+
+
         // POST: Home/returnBook
         [HttpPost("returnBook")]
         public decimal returnBook([FromBody] ReturnBorrowedBookRequest returnBorrowedBook)
         {
-            return _library.returnBook( returnBorrowedBook.Book, returnBorrowedBook.member); ;
+            Member? member = GetMember(returnBorrowedBook.member);
+            return _library.returnBook( returnBorrowedBook.Book, member  ); ;
         }
 
+        private Member? GetMember(MemberDto requestMember)
+        {
+            Member? member = null;
+            switch (requestMember.Profil.Name.ToString())
+            {
+                case "Resident":
+                    member = _mapper.Map<Resident> (requestMember);
+                    break;
+                case "Student":
+                    member = _mapper.Map<Student>(requestMember);
+                    break;
+                default:
+                    break;
+            }
+
+            return member;
+        }
 
 
     }

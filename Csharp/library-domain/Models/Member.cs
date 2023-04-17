@@ -10,10 +10,11 @@ namespace library_domain.Models;
 /// <summary>
 /// A simple representation of a member
 /// </summary>
-public  class Member
+public abstract class Member 
 {
     private readonly HashSet<Book> books = new HashSet<Book>();
-    public Member(int id, string firstName, string lastName, string address, string description, decimal wallet, Profil profil)
+
+    protected Member(int id, string firstName, string lastName, string address, string description, decimal wallet, Profil profil)
     {
         Id = id;
         FirstName = firstName;
@@ -23,6 +24,7 @@ public  class Member
         Wallet = wallet;
         Profil = profil;
     }
+
 
     public int Id { get; protected set; }
     public string FirstName { get; protected set; }
@@ -35,7 +37,7 @@ public  class Member
     public decimal Wallet { get; private protected set; }
     public Profil Profil { get; protected set; }
 
-
+    public abstract decimal payBook(int numerOfdays);
 
     public bool IsLate {
         get
@@ -60,8 +62,7 @@ public  class Member
 
     public void setWallet(decimal wallet) => Wallet = wallet;
 
-    public virtual decimal payBook(int numerOfdays)
-    { return 0; }
+   
 
     public int NumberOfDaysBorrowed(Book book)
     {

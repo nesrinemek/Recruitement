@@ -18,4 +18,6 @@ public interface IBookRepository
     void returnBook(Book book);
 
     IEnumerable<Book> GetAvailableBooks();
+
+    public Member findMember(int id);
 }

@@ -100,13 +100,13 @@ namespace TestProjectBook
             DateOnly borrowDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-29)); // Borrowed 29 days ago
             var isbn = new Isbn(1234567890);
             var book = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", isbn, borrowDate, null);
-            Member student = new Student(1, "John", "Doe", "123 Main St", "Resident member", 1000M, Profil.Student);
+            Member student = new Student(1, "John", "Doe", "123 Main St", "Resident member", 100m, Profil.Student);
 
             // Act
             var amount = _library.returnBook(book, student);
 
             // Assert
-            Assert.Equal(290M, amount);
+            Assert.Equal(2.9m, amount);
         }
         [Fact]
         public void students_in_1st_year_are_not_taxed_for_the_first_15days()
@@ -126,18 +126,17 @@ namespace TestProjectBook
         [Fact]
         public void residents_pay_20cents_for_each_day_they_keep_a_book_after_the_initial_60days()
         {
-            Assert.True(false, "Implement me.");// Arrange
-            DateTime borrowDate = DateTime.Today.AddDays(-61); // Borrowed 61 days ago
-            DateTime returnDate = DateTime.Today.AddDays(-1); // Returned yesterday
+            // Arrange
+            DateOnly borrowDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-61)); // Borrowed 61 days ago
             var isbn = new Isbn(1234567890);
-            var book = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", isbn, null, null);
-            Member resident = new Resident(1, "John", "Doe", "123 Main St", "Resident member", 100, Profil.Resident);
+            var book = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", isbn, borrowDate, null);
+            Member resident = new Resident(1, "John", "Doe", "123 Main St", "Resident member", 1000, Profil.Resident);
 
             // Act
-            var amount = _library.returnBook(book, resident);
+            decimal amount = _library.returnBook(book, resident);
 
             // Assert
-            Assert.Equal(1.20M, amount);
+            Assert.Equal(6.20M, amount);
         }
         [Fact]
         public void members_cannot_borrow_book_if_they_have_late_books()

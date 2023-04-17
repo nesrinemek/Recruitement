@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NHibernate.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,9 +8,9 @@ using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace library_domain.Models;
-
 public class Resident : Member
 {
+    
     public Resident(int id, string firstName, string lastName, string address, string description, decimal wallet, Profil profil) :
         base(id, firstName, lastName, address, description, wallet, profil)
     {
