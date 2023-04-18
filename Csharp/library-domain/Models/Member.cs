@@ -37,6 +37,8 @@ public abstract class Member
     public decimal Wallet { get; private protected set; }
     public Profil Profil { get; protected set; }
 
+    public override int GetHashCode() => HashCode.Combine(Id.GetHashCode(), FirstName.GetHashCode(), LastName.GetHashCode());
+
     public abstract decimal payBook(int numerOfdays);
 
     public bool IsLate {

@@ -100,7 +100,7 @@ namespace TestProjectBook
             DateOnly borrowDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-29)); // Borrowed 29 days ago
             var isbn = new Isbn(1234567890);
             var book = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", isbn, borrowDate, null);
-            Member student = new Student(1, "John", "Doe", "123 Main St", "Resident member", 100m, Profil.Student);
+            Member student = new Student(1, "John", "Doe", "123 Main St", "student member", 100m, Profil.Student);
 
             // Act
             var amount = _library.returnBook(book, student);
@@ -115,7 +115,7 @@ namespace TestProjectBook
             DateOnly borrowDate = DateOnly.FromDateTime(DateTime.Today.AddDays(-14)); // Borrowed 14 days ago
             var isbn = new Isbn(1234567890);
             var book = new Book("Harry Potter and the Philosopher's Stone", "J.K. Rowling", isbn, borrowDate, null);
-            Member student = new Student(1, "John", "Doe", "123 Main St", "Resident member", 100, Profil.Student_1_Class);
+            Member student = new Student(1, "John", "Doe", "123 Main St", "student member", 100, Profil.Student_1_Class);
 
             // Act
            var amount = _library.returnBook(book, student);

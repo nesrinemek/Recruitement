@@ -15,7 +15,6 @@ public class Student: Member
         base(id, firstName, lastName, address, description, wallet, profil)
     {
     }
-    public int classe { get; set; }
     public override decimal payBook(int numberOfDays)
     {
         decimal amount;      
